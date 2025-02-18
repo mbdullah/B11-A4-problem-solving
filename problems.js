@@ -1,5 +1,4 @@
 
-// Problem no 01 : =====================>
 function cashOut( money ) {
     if(typeof money !== 'number' || money < 0){
         return "Invalid";
@@ -9,14 +8,6 @@ function cashOut( money ) {
         return cashoutCharg;
     }
 }
-// const result = cashOut("mewauu");
-// console.log(result);
-
-
-// Problem no 01 almost done hurray---------------------->
-
-
-// Problem no 02: ==========================>
 
 function  validEmail(email) {
     if(typeof email !== 'string'){
@@ -37,13 +28,6 @@ function  validEmail(email) {
         return false;
     }
 }
-// const result = validEmail("mdabdullah@gmail.com");
-// console.log(result);
-
-// Problem no 02 almost done hurray---------------------------->
-
-
-// Problem no 03: ============================>
 
 function  electionResult( votes ) {
     if(!Array.isArray(votes)){
@@ -53,7 +37,10 @@ function  electionResult( votes ) {
     mangoCount = 0;
     bananaCount = 0;
     for(const element of votes){
-        if(element === 'mango'){
+        if(typeof element !== 'string'){
+            return "Invalid";
+        }
+        else if(element === 'mango'){
             mangoCount ++;
         }
         else if(element === 'banana'){
@@ -70,15 +57,8 @@ function  electionResult( votes ) {
         return "Draw";
     }
     }
-    
 }
-// const result = electionResult(["mango", "BananA", "na vote", "na vote"]);
-// console.log(result);
 
-// Problem no 03 almost done-------------------------------------->
-
-
-// Problem no 04: ===============================>
 function  isBestFriend( f1 , f2 ) {
     if(typeof f1 !== 'object' || 
         typeof f2 !== 'object' || 
@@ -91,8 +71,10 @@ function  isBestFriend( f1 , f2 ) {
         !f2.roll || !f2.bestFriend){
         return "Invalid";
     }
-    else if(typeof f1.roll !== 'number' || 
+    else if(typeof f1.name!== 'string' || 
+        typeof f1.roll !== 'number' || 
         typeof f1.bestFriend !== 'number' || 
+        typeof f2.name !== 'string' ||
         typeof f2.roll !== 'number' || 
         typeof f2.bestFriend !== 'number'){
         return "Invalid";
@@ -105,22 +87,13 @@ function  isBestFriend( f1 , f2 ) {
         return false;
     }
 }
-const res = isBestFriend({ name: "hashem", roll: 1, bestFriend: 2 },
-    {name: "kashem",  roll: 2, bestFriend: 1 }    
-    );
-    console.log(res);
-
-// Problem no 04 almost done hurray---------------------------->
-
-
-
-// Problem no 05:========================>
 
 function  calculateWatchTime( times ) {
     if(!Array.isArray(times)){
         return "Invalid"
     }
-    let totalSeconds = 0;
+    else{
+        let totalSeconds = 0;
     for(const time of times){
         if(typeof time !== 'number'){
             return "Invalid";
@@ -132,8 +105,5 @@ function  calculateWatchTime( times ) {
     const second = Math.round(totalSeconds % 60);
 
     return {hour, minute, second};
+    }
 }
-const rec = calculateWatchTime([100, 3800, "90" ]);
-// console.log(rec);
-
-// Problem no 05 almost done hurray:----------------------------------->
